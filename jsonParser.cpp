@@ -190,8 +190,8 @@ namespace M {
                     throw;
                 }
                 res.push_back(val_);
-                if(val_.get_type() == json::TYPE_ARRAY)
-                    std::cout << "array_size:" << val_.get_array_size() << std::endl;
+                //if(val_.get_type() == json::TYPE_ARRAY)
+                    //std::cout << "array_size:" << val_.get_array_size() << std::endl;
                 parse_whitespace();
                 if (*cur_ == ',') {
                     cur_++;

@@ -659,13 +659,16 @@ int main() {
 #ifdef _WINDOWS
 	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
 #endif
-	//_CrtSetBreakAlloc(1703);
-	test_parse();
-	test_access();
-	test_equal();
-	test_move();
-	test_swap();
-	test_copy();
+	//_CrtSetBreakAlloc(1653);
+	const int test_iter_num = 50;
+	for (int i = 0; i < test_iter_num; i++) {
+		test_parse();
+		test_access();
+		test_equal();
+		test_move();
+		test_swap();
+		test_copy();
+	}
 	printf("%d/%d (%3.2f%%) passed\n", test_pass, test_count, test_pass * 100.0 / test_count);
 	_CrtDumpMemoryLeaks();
 	return 0;

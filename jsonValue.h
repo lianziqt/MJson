@@ -55,18 +55,18 @@ namespace M {
             void free() ;
 
             json::type type_ = json::TYPE_NULL;
-            union {
-                double num_; //4B
-                std::string str_; //28B
-                std::vector<Value> arr_; //3 * 8B = 24B
-                objValue obj_; //24B
-            };
             //union {
-            //    double num_; //4b
-            //    std::string* str_; //4b
-            //    std::vector<Value> arr_; //3 * 8b = 24b
-            //    objValue obj_; //24b
+            //    double num_; //4B
+            //    std::string str_; //28B
+            //    std::vector<Value> arr_; //3 * 8B = 24B
+            //    objValue obj_; //24B
             //};
+            union {
+                double num_; //8B
+                std::string* str_; //8B
+                std::vector<Value>* arr_; // 8B
+                objValue* obj_; //8b
+            };
 
             friend bool operator==(const Value& lhs, const Value& rhs) ;
 
